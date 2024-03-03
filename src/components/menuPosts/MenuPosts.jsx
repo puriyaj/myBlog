@@ -2,8 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import styles from "./menuPosts.module.css"
+export const dynamic = 'force-dynamic';
 const getData = async () => {
-  const res = await fetch("http://localhost:3000/api/views", {
+  const res = await fetch("https://my-blog-ten-pearl.vercel.app/api/views", {
     cache: "no-store",
   });
 
