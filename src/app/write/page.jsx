@@ -26,7 +26,9 @@ const WritePage = () => {
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
   const [catSlug, setCatSlug] = useState("");
-  const ReactQuill = useMemo(() => dynamic(() => import('react-quill'), { ssr: false }),[]);
+  const ReactQuill = useMemo(() => dynamic(() => import('react-quill'), {
+    loading:()=><p>…Loading</p>,ssr:false
+    }),[]);
   useEffect(() => {
     const storage = getStorage(app);
     const upload = () => {
