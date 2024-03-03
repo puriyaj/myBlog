@@ -16,6 +16,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+      <link
+  rel="stylesheet"
+  href="https://unpkg.com/react-quill@1.3.3/dist/quill.bubble.css"
+/>
+      </head>
       <body className={inter.className}>
         <AuthProvider>
           <ThemeContextProvider>
