@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import dynamic from "next/dynamic";
+import { useMemo } from "react";
 import styles from "./writePage.module.css";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -12,7 +14,7 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import { app } from "@/utils/firebase";
-import ReactQuill from "react-quill";
+
 
 const WritePage = () => {
   const { status } = useSession();
@@ -24,7 +26,7 @@ const WritePage = () => {
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
   const [catSlug, setCatSlug] = useState("");
-
+  const ReactQuill = useMemo(() => dynamic(() => import('react-quill'), { ssr: false }),[]);
   useEffect(() => {
     const storage = getStorage(app);
     const upload = () => {
