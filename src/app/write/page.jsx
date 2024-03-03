@@ -68,6 +68,7 @@ const WritePage = () => {
 
   if (status === "unauthenticated") {
     router.push("/");
+    console.log(status)
   }
 
   const slugify = (str) =>
